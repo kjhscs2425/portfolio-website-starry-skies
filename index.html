@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Portfolio</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <!-- Import header from `header.html`-->
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header (loaded dynamically) -->
     <header id="header"></header>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#header').load('./header.html', function() {
-          $('.content').css("display", "block");
-        })
-      })
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#header').load('./header.html', function () {
+          $('.content').removeClass('hidden');
+        });
+      });
     </script>
 
-    <div class="content">
-    <!-- Your HTML starts here-->
-    <h1>Homepage of my portfolio website</h1>
-    <p>You decorate this and write whatever you want to for the homepage</p>
-    <p>(avoid photos and identifying information about yourself)</p>
-    <!-- Your HTML ends here-->
+    <!-- Main content -->
+    <div class="content hidden">
+      <main class="max-w-4xl mx-auto px-4 py-12 text-center">
+        <h1 class="text-4xl font-bold mb-4 text-indigo-600">Welcome to My Portfolio</h1>
+        <p class="text-lg mb-6">
+          This website showcases all the projects I completed this year in
+          <span class="font-semibold text-indigo-500">Computer Science</span>.
+        </p>
+        <p class="text-md text-gray-600">
+          Click on the headers in the menu above to explore each project.
+        </p>
+      </main>
     </div>
-
   </body>
 </html>
