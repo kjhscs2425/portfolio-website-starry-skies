@@ -2,6 +2,7 @@ import json
 import os
 import random
 
+
 questions_asked = []
 
 past_runs = {
@@ -65,7 +66,8 @@ def quiz_round(category, username, level=1):
         incorrect_questions = []
         for question in remaining_questions:
             correct_answer = questions_dict[question].lower()
-            user_answer = input(f"Question: {question}, Your answer: ").lower()
+            print(f"Question: {question}")
+            user_answer = input("Your answer: ").lower()
             if user_answer == correct_answer:
                 print("Correct!!!")
                 if first_pass:
