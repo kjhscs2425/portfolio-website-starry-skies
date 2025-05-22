@@ -66,8 +66,7 @@ def quiz_round(category, username, level=1):
         incorrect_questions = []
         for question in remaining_questions:
             correct_answer = questions_dict[question].lower()
-            print(f"Question: {question}")
-            user_answer = input("Your answer: ").lower()
+            user_answer = input(f"Question: {question}, Your answer: ").lower()
             if user_answer == correct_answer:
                 print("Correct!!!")
                 if first_pass:
