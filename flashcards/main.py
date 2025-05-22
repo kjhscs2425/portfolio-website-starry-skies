@@ -1,17 +1,6 @@
 import json
 import os
 import random
-import matplotlib.pyplot as plt
-
-def show_flashcard(text, title="Flashcard"):
-    plt.ion()  #updates without stopping code
-    fig, ax = plt.subplots(figsize=(7, 4)) #figure size 7 by 4 inches, other measurements work too
-    ax.text(0.5, 0.5, text, fontsize=18, ha='center', va='center', wrap=True)
-    ax.set_axis_off()
-    plt.title(title, fontsize=14, pad=20)
-    plt.tight_layout()
-    plt.show()
-    plt.pause(0.01)  
 
 questions_asked = []
 
@@ -76,16 +65,13 @@ def quiz_round(category, username, level=1):
         incorrect_questions = []
         for question in remaining_questions:
             correct_answer = questions_dict[question].lower()
-            show_flashcard(question, title=f"Level {level} Flashcard")
-            user_answer = input("Your answer: ").lower()
-            plt.close()
+            user_answer = input(f"Question: {question}, Your answer: ").lower()
             if user_answer == correct_answer:
                 print("Correct!!!")
                 if first_pass:
                     first_try["correct"].append(question)
             else:
                 print(f"Incorrect :( The correct answer was: {correct_answer}")
-                show_flashcard(f"The correct answer was:\n{correct_answer}", title="Answer")
                 incorrect_questions.append(question)
                 if first_pass:
                     first_try["incorrect"].append(question)
